@@ -8,11 +8,12 @@ import {
 } from 'react-native';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from '@react-navigation/native';
+import {Link, useNavigation} from '@react-navigation/native';
 
 export default function Welcome() {
   const count = useSelector(state => state.counter.value);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   return (
     <View style={styles.main}>
       <View style={styles.banner}>
@@ -35,8 +36,11 @@ export default function Welcome() {
           <Text>Forgot password?</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.formBtn, {backgroundColor: '#ffffff'}]}>
-          <Text style={{fontSize: 15, color: '#8d39ed'}}>Continue</Text>
+          style={[styles.formBtn, {backgroundColor: '#ffffff'}]}
+          onPress={() => {
+            navigation.navigate('Home');
+          }}>
+          <Text style={{fontSize: 15, color: '#8d39ed'}}>Log in</Text>
         </TouchableOpacity>
         <View style={styles.dividerContainer}>
           <View style={styles.divider} />
@@ -44,7 +48,10 @@ export default function Welcome() {
           <View style={styles.divider} />
         </View>
         <TouchableOpacity
-          style={[styles.formBtn, {backgroundColor: '#8d39ed'}]}>
+          style={[styles.formBtn, {backgroundColor: '#8d39ed'}]}
+          onPress={() => {
+            navigation.navigate('Signup');
+          }}>
           <Text style={{fontSize: 15, color: '#ffffff'}}>
             Create an account
           </Text>
