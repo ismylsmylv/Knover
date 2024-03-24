@@ -12,21 +12,28 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import Welcome from './pages/welcome';
 import Signup from './pages/signup';
 import Login from './pages/login';
+import {Provider} from 'react-redux';
+import store from './redux/store';
 
 const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Welcome"
-          component={Welcome}
-          options={{title: 'Welcome'}}
-        />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={Signup} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen
+            name="Welcome"
+            component={Welcome}
+            options={{title: 'Welcome'}}
+          />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Signup" component={Signup} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
