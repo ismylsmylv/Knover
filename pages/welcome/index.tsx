@@ -32,7 +32,11 @@ export default function Welcome() {
           placeholder="password"
           placeholderTextColor={'#6e6d6d'}
         />
-        <TouchableOpacity style={styles.forgotView}>
+        <TouchableOpacity
+          style={styles.forgotView}
+          onPress={() => {
+            navigation.navigate('Forgot');
+          }}>
           <Text>Forgot password?</Text>
         </TouchableOpacity>
         <TouchableOpacity

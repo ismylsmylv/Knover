@@ -10,7 +10,7 @@ import {
 import React, {useState} from 'react';
 import CheckBox from '@react-native-community/checkbox';
 import {useNavigation} from '@react-navigation/native';
-export default function Signup() {
+export default function Forgot() {
   const [step, setstep] = useState(0);
   const [agreed, setagreed] = useState(false);
   const navigation = useNavigation();
@@ -21,11 +21,9 @@ export default function Signup() {
           {step == 0
             ? 'Please, enter your email'
             : step == 1
-            ? 'Choose username'
+            ? "Enter the code that we've sent via email"
             : step == 2
-            ? 'Set up password'
-            : step == 3
-            ? 'Tell us about yourself'
+            ? 'Set up new password'
             : "You're all done, ismylsmylv"}
         </Text>
       </View>
@@ -44,19 +42,6 @@ export default function Signup() {
               gap: 20,
               marginTop: '40%',
             }}>
-            <View style={styles.agreement}>
-              <CheckBox
-                tintColor="#e8e8e8"
-                onFillColor="#ff0000"
-                hideBox={false}
-                disabled={false}
-                value={agreed}
-                onValueChange={() => setagreed(!agreed)}
-              />
-              <Text style={{color: 'black'}}>
-                I accept Terms and conditions and Privacy Policy
-              </Text>
-            </View>
             <TouchableOpacity
               style={[styles.formBtn, {backgroundColor: '#ffffff'}]}
               onPress={() => {
@@ -71,7 +56,7 @@ export default function Signup() {
         <View style={styles.form}>
           <TextInput
             style={styles.formInput}
-            placeholder="username"
+            placeholder="code"
             placeholderTextColor={'#6e6d6d'}
           />
           <View
@@ -122,47 +107,10 @@ export default function Signup() {
             </TouchableOpacity>
           </View>
         </View>
-      ) : step == 3 ? (
-        <View style={styles.form}>
-          <TextInput
-            style={styles.formInput}
-            placeholder="first name"
-            placeholderTextColor={'#6e6d6d'}
-          />
-          <TextInput
-            style={styles.formInput}
-            placeholder="last name"
-            placeholderTextColor={'#6e6d6d'}
-          />
-          <View style={styles.formInputDates}>
-            <TextInput placeholder="day" style={styles.formInputDate} />
-            <View style={styles.shortLine} />
-            <TextInput placeholder="month" style={styles.formInputDate} />
-            <View style={styles.shortLine} />
-            <TextInput placeholder="year" style={styles.formInputDate} />
-          </View>
-          <View
-            style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 20,
-              marginTop: '40%',
-            }}>
-            <TouchableOpacity
-              style={[styles.formBtn, {backgroundColor: '#ffffff'}]}
-              onPress={() => {
-                setstep(4);
-                // navigation.navigate('Home');
-              }}>
-              <Text style={{fontSize: 15, color: '#8d39ed'}}>Continue</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
       ) : (
         <View style={[styles.form, {justifyContent: 'space-between'}]}>
           <Text style={styles.completeText}>
-            Your account has been crated succesfully
+            Password has been reset succesfully
           </Text>
           <TouchableOpacity
             style={[
