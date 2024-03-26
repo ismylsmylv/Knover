@@ -16,6 +16,9 @@ import {Provider} from 'react-redux';
 import store from './redux/store';
 import Home from './pages/home';
 import Forgot from './pages/forgot';
+import Explore from './pages/Explore';
+import Notifications from './pages/Notifications';
+import Surveys from './pages/Surveys';
 
 const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
@@ -35,6 +38,9 @@ function App(): React.JSX.Element {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Forgot" component={Forgot} />
+          <Stack.Screen name="Explore" component={Explore} />
+          <Stack.Screen name="Notifications" component={Notifications} />
+          <Stack.Screen name="Surveys" component={Surveys} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

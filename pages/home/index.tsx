@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
+import Navbar from '../../components/Navbar';
 
 export default function Home() {
   useEffect(() => {
@@ -9,6 +10,7 @@ export default function Home() {
 
   return (
     <View>
+      <Navbar />
       <Text>Home</Text>
     </View>
   );
