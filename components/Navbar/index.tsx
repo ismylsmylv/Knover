@@ -2,13 +2,17 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import Home from '../../pages/home';
+import Explore from '../../pages/Explore';
+import Surveys from '../../pages/Surveys';
 export default function Navbar() {
   const navigation = useNavigation();
+  const Tab = createMaterialTopTabNavigator();
   return (
     <View>
       <Text>Navbar</Text>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => {
           navigation.navigate('Home');
         }}>
@@ -31,7 +35,12 @@ export default function Navbar() {
           navigation.navigate('Surveys');
         }}>
         <Text>Surveys</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <Tab.Navigator initialRouteName="Home">
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Explore" component={Explore} />
+        <Tab.Screen name="Surveys" component={Surveys} />
+      </Tab.Navigator>
     </View>
   );
 }
