@@ -6,6 +6,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import Home from '../../pages/home';
 import Explore from '../../pages/Explore';
 import Surveys from '../../pages/Surveys';
+import Feed from '../Feed';
 export default function Navbar() {
   const navigation = useNavigation();
   const Tab = createMaterialTopTabNavigator();
@@ -36,8 +37,8 @@ export default function Navbar() {
         }}>
         <Text>Surveys</Text>
       </TouchableOpacity> */}
-      <Tab.Navigator initialRouteName="Home">
-        <Tab.Screen name="Home" component={Home} />
+      <Tab.Navigator initialRouteName="Feed">
+        <Tab.Screen name="Feed" component={Feed} />
         <Tab.Screen name="Explore" component={Explore} />
         <Tab.Screen name="Surveys" component={Surveys} />
       </Tab.Navigator>

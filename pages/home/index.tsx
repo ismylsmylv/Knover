@@ -6,6 +6,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import Explore from '../Explore';
 import {NavigationContainer} from '@react-navigation/native';
 import Surveys from '../Surveys';
+import Feed from '../../components/Feed';
 
 export default function Home() {
   useEffect(() => {
@@ -14,15 +15,13 @@ export default function Home() {
   const Tab = createMaterialTopTabNavigator();
 
   return (
-    <View>
-      {/* <NavigationContainer independent={true}> 
-      <Tab.Navigator initialRouteName="Home">
-        {/* <Tab.Screen name="Home" component={Home} /> 
+    <View style={{backgroundColor: 'red'}}>
+      {/* <Tab.Navigator initialRouteName="Feed">
+        <Tab.Screen name="Feed" component={Feed} />
         <Tab.Screen name="Explore" component={Explore} />
         <Tab.Screen name="Surveys" component={Surveys} />
-      </Tab.Navigator>
-      </NavigationContainer> */}
-      {/* <Navbar navigation={navigation} /> */}
+      </Tab.Navigator> */}
+      <Navbar />
       <Text>Home</Text>
     </View>
   );

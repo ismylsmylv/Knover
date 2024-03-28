@@ -28,17 +28,7 @@ function App(): React.JSX.Element {
   const Tab = createMaterialTopTabNavigator();
   return (
     <Provider store={store}>
-      {login ? (
-        <NavigationContainer>
-          <Tab.Navigator initialRouteName="Home">
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Explore" component={Explore} />
-            <Tab.Screen name="Surveys" component={Surveys} />
-          </Tab.Navigator>
-        </NavigationContainer>
-      ) : (
-        <LoginSession />
-      )}
+      <LoginSession />
 
       {/*<NavigationContainer>
         <Stack.Navigator
