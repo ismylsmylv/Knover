@@ -28,9 +28,7 @@ function App(): React.JSX.Element {
   const Tab = createMaterialTopTabNavigator();
   return (
     <Provider store={store}>
-      <LoginSession />
-
-      {/*<NavigationContainer>
+      <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
@@ -40,15 +38,15 @@ function App(): React.JSX.Element {
             component={Welcome}
             options={{title: 'Welcome'}}
           />
-           <Stack.Screen name="Home" component={Home} /> 
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Forgot" component={Forgot} />
           <Stack.Screen name="Explore" component={Explore} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="Surveys" component={Surveys} />
-        </Stack.Navigator> 
-      </NavigationContainer>*/}
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 }

@@ -37,11 +37,11 @@ export default function Navbar() {
         }}>
         <Text>Surveys</Text>
       </TouchableOpacity> */}
-      <Tab.Navigator initialRouteName="Feed">
+      {/* <Tab.Navigator initialRouteName="Feed">
         <Tab.Screen name="Feed" component={Feed} />
         <Tab.Screen name="Explore" component={Explore} />
         <Tab.Screen name="Surveys" component={Surveys} />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
     </View>
   );
 }
