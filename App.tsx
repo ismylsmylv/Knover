@@ -21,6 +21,7 @@ import Notifications from './pages/Notifications';
 import Surveys from './pages/Surveys';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import LoginSession from './pages/LoginSession';
+import Profile from './pages/Profile';
 
 const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
@@ -45,6 +46,7 @@ function App(): React.JSX.Element {
           <Stack.Screen name="Explore" component={Explore} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="Surveys" component={Surveys} />
+          <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
