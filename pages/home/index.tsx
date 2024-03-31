@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useEffect} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
@@ -7,8 +7,13 @@ import Feed from '../../components/Feed';
 import Explore from '../Explore';
 import Notifications from '../Notifications';
 import Surveys from '../Surveys';
-import Icon from 'react-native-vector-icons/AntDesign';
-
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {
+  faBell,
+  faClipboard,
+  faEarthAmericas,
+  faHouse,
+} from '@fortawesome/free-solid-svg-icons';
 export default function Home() {
   useEffect(() => {
     console.log('home');
@@ -24,7 +29,13 @@ export default function Home() {
           onPress={() => {
             navigation.navigate('Profile');
           }}>
-          <Text>profile</Text>
+          <Image
+            style={styles.profile}
+            source={{
+              uri: 'https://imgv3.fotor.com/images/blog-richtext-image/10-profile-picture-ideas-to-make-you-stand-out.jpg',
+            }}
+          />
+          {/* <Text>profile</Text> */}
         </TouchableOpacity>
       </View>
       <Tab.Navigator
@@ -39,27 +50,59 @@ export default function Home() {
           name={'Feed'}
           component={Feed}
           options={{
-            tabBarLabel: 'Feed',
+            tabBarShowLabel: false,
+            tabBarLabel: '',
+            tabBarIcon: ({color, size}) => (
+              <FontAwesomeIcon
+                icon={faHouse}
+                style={{color: '#ffffff'}}
+                size={25}
+              />
+            ),
           }}
         />
         <Tab.Screen
           name={'Explore'}
           options={{
-            tabBarLabel: 'Explore',
+            tabBarShowLabel: false,
+            tabBarLabel: '',
+            tabBarIcon: ({color, size}) => (
+              <FontAwesomeIcon
+                icon={faEarthAmericas}
+                style={{color: '#ffffff'}}
+                size={25}
+              />
+            ),
           }}
           component={Explore}
         />
         <Tab.Screen
           name={'Notifications'}
           options={{
-            tabBarLabel: 'Notifications',
+            tabBarShowLabel: false,
+            tabBarLabel: '',
+            tabBarIcon: ({color, size}) => (
+              <FontAwesomeIcon
+                icon={faBell}
+                style={{color: '#ffffff'}}
+                size={25}
+              />
+            ),
           }}
           component={Notifications}
         />
         <Tab.Screen
           name={'Surveys'}
           options={{
-            tabBarLabel: 'Surveys',
+            tabBarShowLabel: false,
+            tabBarLabel: '',
+            tabBarIcon: ({color, size}) => (
+              <FontAwesomeIcon
+                icon={faClipboard}
+                style={{color: '#ffffff'}}
+                size={25}
+              />
+            ),
           }}
           component={Surveys}
         />
@@ -81,7 +124,7 @@ const styles = StyleSheet.create({
   profile: {
     height: 50,
     width: 50,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     borderRadius: 60,
   },
   logo: {
